@@ -1,0 +1,15 @@
+@mixin font($fname, $fstyle, $fweight, $furlwoff2, $furlwoff) {
+  @font-face {
+    font-family: $fname;
+    font-style: $fstyle;
+    font-weight: $fweight;
+    src: url($furlwoff2) format("woff2"), url($furlwoff) format("woff");
+  }
+}
+
+
+@include font("Proxima", normal, 600, "/fonts/ProximaNovaCond-Semibold.woff2",  "/fonts/ProximaNovaCond-Semibold.woff");
+@include font("Proxima", normal, 400, "/fonts/ProximaNovaCond-Regular.woff2",  "/fonts/ProximaNovaCond-Regular.woff");
+@include font("Proxima", normal, 300, "/fonts/ProximaNovaCond-Light.woff2",  "/fonts/ProximaNovaCond-Light.woff");
+
+

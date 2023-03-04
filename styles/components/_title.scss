@@ -1,0 +1,13 @@
+.title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 56px;
+  line-height: 100%;
+  color: $colorBlackDark;
+  margin: 0;
+  @media (max-width: $mobile) {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 100%;
+  }
+}

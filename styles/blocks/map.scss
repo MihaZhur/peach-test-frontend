@@ -1,0 +1,329 @@
+.map {
+  padding-bottom: 100px;
+  &.open-select {
+    position: relative;
+  }
+}
+.map__container {
+  position: relative;
+}
+.map__current-region {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  // background-color: #000;
+  left: 50px;
+  top: 100px;
+}
+.navbar__container::-webkit-scrollbar,
+.map__wrapper::-webkit-scrollbar {
+  display: none;
+}
+.map__wrapper {
+  position: relative;
+  font-size: 12px;
+  min-height: 604px;
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: auto;
+  transition: opacity 0.2s ease;
+  img.hidden {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  img {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+}
+.map__srollbar {
+  width: 1190px;
+}
+
+.navbar {
+  padding-left: 70px;
+  padding-right: 70px;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
+  padding-top: 16px;
+  margin-bottom: 85px;
+  width: 100%;
+}
+.navbar__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar__head-list {
+  @include list-reset;
+  display: flex;
+  position: relative;
+  transition: opacity 0.2s ease;
+  flex-wrap: wrap;
+}
+
+.numbers__active-menu {
+  position: absolute;
+  background-color: $colorRed;
+  height: 3px;
+  left: 0;
+  width: 30px;
+  bottom: 0;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+.navbar__head-item {
+  margin-left: 30px;
+}
+.navbar__head-link {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+  display: block;
+  padding-bottom: 29px;
+  padding-top: 10px;
+  &--active {
+    color: $colorRed;
+  }
+}
+
+.navbar__select-button {
+  @include btn-reset;
+  font-weight: 600;
+  font-size: 19px;
+  padding-bottom: 24px;
+  line-height: 100%;
+  color: $colorBlackDark;
+  position: relative;
+  padding-right: 30px;
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0px;
+    top: 5px;
+    width: 22px;
+    height: 12px;
+    background-image: url(/image/arrow.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.map__info-city {
+  position: absolute;
+  top: 110px;
+  background-color: #fff;
+  box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  z-index: 3;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 68.5px;
+  padding-right: 68.5px;
+  opacity: 0;
+  transform: translateY(30%);
+  pointer-events: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.map__info-wrapper {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1113px;
+  justify-content: space-between;
+}
+.map__info-list {
+  padding-right: 24px;
+}
+.map__info-title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.map__info-item {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.open-select {
+  .map__info-city {
+    opacity: 1;
+    transform: translateY(0%);
+    pointer-events: all;
+  }
+  .navbar__head-list {
+    opacity: 0.1;
+    pointer-events: none;
+  }
+  .map__wrapper {
+    cursor: pointer;
+    opacity: 0.3;
+    &::before {
+      content: "";
+      background-color: #ffffff72;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .navbar__select-button::before {
+    transform: rotate(180deg);
+  }
+}
+
+@media (max-width: $desktop) {
+  .map__container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media (max-width: 1120px) {
+  .navbar {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .navbar__head-item {
+    margin-left: 15px;
+  }
+  .map__info-wrapper {
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+  .map__info-list {
+    padding-bottom: 20px;
+  }
+}
+@media (max-width: 876px) {
+  .navbar {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .navbar__head-item {
+    margin-left: 0;
+    margin-right: 15px;
+  }
+  .navbar__head {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: $mobile) {
+  .map__info-city {
+    top: 50px;
+  }
+  .open-select {
+    
+  }
+  .map {
+    padding-bottom: 40px;
+  }
+  .navbar {
+    padding-left: 5px;
+    padding-right: 5px;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.06);
+    width: 700px;
+    margin-bottom: 30px;
+  }
+  .map__info-city {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .map__info-item {
+    display: none;
+    font-size: 14px;
+    line-height: 14px;
+  }
+  .map__info-list {
+    flex-basis: 33%;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    &.active {
+      .map__info-title {
+        color: $colorRed;
+        &:after {
+          transform: rotate(180deg);
+          top: -2px;
+          border-top: 6px solid currentColor;
+        }
+      }
+    }
+  }
+  .map__info-title {
+    position: relative;
+    display: inline-block;
+    padding-right: 15px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 14px;
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      // background-color: $colorBlackDark;
+      border: 5px solid transparent;
+      border-top: 5px solid $colorBlackDark;
+      right: 0px;
+      top: 4px;
+    }
+    &.empty::after {
+      display: none;
+    }
+  }
+  .map__info-list.active {
+    .map__info-item {
+      display: block;
+    }
+  }
+
+  .navbar__head-list {
+    justify-content: start;
+    width: 100%;
+    flex-wrap: nowrap;
+    // overflow-x: scroll;
+  }
+  .navbar__head-link {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .navbar__head-item {
+    margin-left: 0;
+    margin-right: 15px;
+  }
+  .navbar__select-button {
+    padding-bottom: 17px;
+  }
+}
+@media (max-width: 542px) {
+  .navbar__container {
+    // padding-right: 100px;
+    overflow-x: auto;
+    width: 100%;
+  }
+  .map__container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .navbar__head-list {
+    width: 100%;
+  }
+  .navbar__container-scroll {
+    width: 900px;
+    // padding-left: 30px;
+    // padding-right: 100px;
+  }
+
+  .map__wrapper {
+    min-height: 250px;
+    overflow-x: scroll;
+  }
+}
