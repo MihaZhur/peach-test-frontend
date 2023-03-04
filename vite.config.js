@@ -8,4 +8,5 @@ export default {
       partialDirectory: resolve(__dirname, 'partials'),
     }),
   ],
+  base: '/petch-test-frontend/',
 };
