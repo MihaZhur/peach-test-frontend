@@ -8,5 +8,5 @@ export default {
       partialDirectory: resolve(__dirname, 'partials'),
     }),
   ],
-  base: '/',
+  base: './',
 };
